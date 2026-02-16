@@ -1,0 +1,63 @@
+{
+    "name": "coquibot/coqui-toolkit-clawhub-skills",
+    "description": "ClawHub skills toolkit for Coqui — discover, install, and manage AgentSkills from ClawHub",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Carmelo Santana"
+        }
+    ],
+    "keywords": [
+        "php-agents",
+        "coqui",
+        "clawhub",
+        "agentskills",
+        "toolkit"
+    ],
+    "require": {
+        "php": "^8.4",
+        "ext-json": "*",
+        "ext-zip": "*",
+        "symfony/http-client": "^7.0"
+    },
+    "require-dev": {
+        "carmelosantana/php-agents": "^0.7",
+        "pestphp/pest": "^3.0",
+        "phpstan/phpstan": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "CoquiBot\\Toolkits\\ClawHubSkills\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CoquiBot\\Toolkits\\ClawHubSkills\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "scripts": {
+        "test": "pest",
+        "analyse": "phpstan analyse"
+    },
+    "extra": {
+        "php-agents": {
+            "toolkits": [
+                "CoquiBot\\Toolkits\\ClawHubSkills\\ClawHubSkillsToolkit"
+            ],
+            "description": "ClawHub skill discovery and local skill lifecycle management for Coqui",
+            "credentials": {
+                "CLAWHUB_API_TOKEN": "ClawHub API token for authenticated endpoints. Create one from your ClawHub account settings."
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
